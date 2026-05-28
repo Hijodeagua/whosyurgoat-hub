@@ -1,9 +1,12 @@
 {
   "rewrites": [
-    { "source": "/goat/:path*",       "destination": "https://PLACEHOLDER-goat.vercel.app/:path*" },
+    { "source": "/goat/:path*",       "destination": "https://peoples-champ.vercel.app/:path*" },
     { "source": "/crime-maps/:path*", "destination": "https://PLACEHOLDER-crimemaps.vercel.app/:path*" },
     { "source": "/election/:path*",   "destination": "https://PLACEHOLDER-election.vercel.app/:path*" },
     { "source": "/vegas/:path*",      "destination": "https://PLACEHOLDER-vegas.vercel.app/:path*" },
     { "source": "/worldcup/:path*",   "destination": "https://PLACEHOLDER-worldcup.vercel.app/:path*" }
+  ],
+  "redirects": [
+    { "source": "/goat", "destination": "/goat/", "permanent": false }
   ]
 }
