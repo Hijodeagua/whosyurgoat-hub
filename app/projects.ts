@@ -1,4 +1,4 @@
-export type ProjectStatus = "live" | "coming-soon";
+export type ProjectStatus = "live" | "in-progress" | "coming-soon";
 
 export type Project = {
   title: string;
@@ -26,13 +26,13 @@ export const projects: Project[] = [
     title: "Election Tracker",
     description: "Polling averages & trends.",
     href: "/election",
-    status: "coming-soon",
+    status: "in-progress",
   },
   {
     title: "Can Tre Beat Vegas",
     description: "NFL/NBA model picks vs. the spread.",
     href: "/vegas",
-    status: "coming-soon",
+    status: "in-progress",
   },
   {
     title: "World Cup 2026",
