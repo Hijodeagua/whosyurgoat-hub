@@ -38,6 +38,6 @@ export const projects: Project[] = [
     title: "World Cup 2026",
     description: "Match & ticket tracker.",
     href: "/worldcup",
-    status: "coming-soon",
+    status: "live",
   },
 ];
