@@ -1,23 +1,37 @@
 import { projects, type Project } from "./projects";
 
+const STATUS_STYLES: Record<
+  Project["status"],
+  { label: string; badge: string; dot: string }
+> = {
+  live: {
+    label: "Live",
+    badge: "bg-emerald-500/15 text-emerald-400 ring-1 ring-inset ring-emerald-500/30",
+    dot: "bg-emerald-400",
+  },
+  "in-progress": {
+    label: "In Progress",
+    badge: "bg-sky-500/15 text-sky-400 ring-1 ring-inset ring-sky-500/30",
+    dot: "bg-sky-400",
+  },
+  "coming-soon": {
+    label: "Coming Soon",
+    badge: "bg-amber-500/15 text-amber-400 ring-1 ring-inset ring-amber-500/30",
+    dot: "bg-amber-400",
+  },
+};
+
 function StatusBadge({ status }: { status: Project["status"] }) {
-  const isLive = status === "live";
+  const style = STATUS_STYLES[status];
   return (
     <span
       className={
         "inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs font-medium " +
-        (isLive
-          ? "bg-emerald-500/15 text-emerald-400 ring-1 ring-inset ring-emerald-500/30"
-          : "bg-amber-500/15 text-amber-400 ring-1 ring-inset ring-amber-500/30")
+        style.badge
       }
     >
-      <span
-        className={
-          "h-1.5 w-1.5 rounded-full " +
-          (isLive ? "bg-emerald-400" : "bg-amber-400")
-        }
-      />
-      {isLive ? "Live" : "Coming Soon"}
+      <span className={"h-1.5 w-1.5 rounded-full " + style.dot} />
+      {style.label}
     </span>
   );
 }
