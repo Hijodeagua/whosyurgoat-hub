@@ -1,87 +1,116 @@
 import { projects, type Project } from "./projects";
 
-const STATUS_STYLES: Record<
+const STATUS_META: Record<
   Project["status"],
-  { label: string; badge: string; dot: string }
+  { badgeText: string; badgeClass: string; ctaLead: string; ctaAction: string; playable: boolean }
 > = {
   live: {
-    label: "Live",
-    badge: "bg-emerald-500/15 text-emerald-400 ring-1 ring-inset ring-emerald-500/30",
-    dot: "bg-emerald-400",
+    badgeText: "LIVE",
+    badgeClass: "is-live",
+    ctaLead: "READY",
+    ctaAction: "▸ PLAY",
+    playable: true,
   },
   "in-progress": {
-    label: "In Progress",
-    badge: "bg-sky-500/15 text-sky-400 ring-1 ring-inset ring-sky-500/30",
-    dot: "bg-sky-400",
+    badgeText: "IN PROGRESS",
+    badgeClass: "is-progress",
+    ctaLead: "BUILDING",
+    ctaAction: "▸ CONTINUE",
+    playable: true,
   },
   "coming-soon": {
-    label: "Coming Soon",
-    badge: "bg-amber-500/15 text-amber-400 ring-1 ring-inset ring-amber-500/30",
-    dot: "bg-amber-400",
+    badgeText: "COMING SOON",
+    badgeClass: "is-soon",
+    ctaLead: "STANDBY",
+    ctaAction: "◌ SOON",
+    playable: false,
   },
 };
 
-function StatusBadge({ status }: { status: Project["status"] }) {
-  const style = STATUS_STYLES[status];
-  return (
-    <span
-      className={
-        "inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs font-medium " +
-        style.badge
-      }
-    >
-      <span className={"h-1.5 w-1.5 rounded-full " + style.dot} />
-      {style.label}
-    </span>
-  );
-}
+function Cabinet({ project }: { project: Project }) {
+  const meta = STATUS_META[project.status];
+  const classes = [
+    "cab",
+    meta.playable ? "is-playable" : "",
+    project.status === "live" ? "is-live" : "",
+    project.status === "in-progress" ? "is-progress" : "",
+    project.status === "coming-soon" ? "is-soon" : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
 
-function ProjectCard({ project }: { project: Project }) {
+  const style = { ["--c" as string]: project.accent };
+  const inner = (
+    <>
+      <div className="cab-screen">
+        <span className={`cab-badge ${meta.badgeClass}`}>{meta.badgeText}</span>
+        <span className="cab-glyph">{project.emoji}</span>
+      </div>
+      <h2 className="cab-name">{project.title}</h2>
+      <p className="cab-desc">{project.description}</p>
+      <div className="cab-cta">
+        <span>{meta.ctaLead}</span>
+        <span className="cab-arrow">{meta.ctaAction}</span>
+      </div>
+    </>
+  );
+
+  if (!meta.playable) {
+    return (
+      <div className={classes} style={style} aria-label={`${project.title} — coming soon`}>
+        {inner}
+      </div>
+    );
+  }
+
   return (
-    <a
-      href={project.href}
-      className="group flex flex-col justify-between rounded-2xl border border-neutral-800 bg-neutral-900/50 p-6 transition hover:border-neutral-600 hover:bg-neutral-900"
-    >
-      <div>
-        <div className="flex items-start justify-between gap-3">
-          <h2 className="text-lg font-semibold text-neutral-100">
-            {project.title}
-          </h2>
-          <StatusBadge status={project.status} />
-        </div>
-        <p className="mt-2 text-sm text-neutral-400">{project.description}</p>
-      </div>
-      <div className="mt-6 text-sm font-medium text-neutral-500 transition group-hover:text-neutral-300">
-        {project.href}
-        <span className="ml-1 inline-block transition group-hover:translate-x-0.5">
-          →
-        </span>
-      </div>
+    <a href={project.href} className={classes} style={style}>
+      {inner}
     </a>
   );
 }
 
 export default function Home() {
+  const total = projects.length;
+  const nowPlaying = projects.filter((p) => p.status === "live").length;
+
   return (
-    <main className="mx-auto max-w-5xl px-6 py-20">
-      <header className="mb-12">
-        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
-          Who&apos;s Yur GOAT
-        </h1>
-        <p className="mt-3 max-w-2xl text-neutral-400">
-          A directory of my projects, all under one roof.
-        </p>
-      </header>
+    <>
+      <div className="arcade-floor" />
+      <div className="arcade-vignette" />
 
-      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {projects.map((project) => (
-          <ProjectCard key={project.href} project={project} />
-        ))}
-      </div>
+      <main className="mx-auto max-w-5xl px-6 pb-32 pt-16 sm:pt-24">
+        <header className="mb-12 text-center sm:mb-16">
+          <h1 className="arcade-title">
+            TRE&apos;S <span className="accent">ARCADE</span>
+          </h1>
+          <p className="arcade-subtitle">
+            A high-score collection of personal builds. Pick a cabinet and press play.
+          </p>
+          <div className="arcade-meta">
+            <span>
+              <b>{total}</b> CABINETS
+            </span>
+            <span>
+              <b>{nowPlaying}</b> NOW PLAYING
+            </span>
+            <span>PLAYER&nbsp;1 · TRE</span>
+          </div>
+        </header>
 
-      <footer className="mt-20 text-sm text-neutral-600">
-        whosyurgoat.app
-      </footer>
-    </main>
+        <section className="arcade-grid" aria-label="Projects">
+          {projects.map((project) => (
+            <Cabinet key={project.href} project={project} />
+          ))}
+        </section>
+
+        <footer className="arcade-footer">
+          <div>© {new Date().getFullYear()} TRE · BUILT FOR FUN</div>
+          <div className="pulse">▮▮▮ GAME ON ▮▮▮</div>
+        </footer>
+      </main>
+
+      <div className="arcade-crt" />
+    </>
   );
 }
