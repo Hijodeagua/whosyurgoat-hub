@@ -96,14 +96,6 @@ body {
 }
 
 /* ---- header ---- */
-.arcade-coin {
-  font-family: var(--font-pixel), monospace;
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  color: var(--neon-b);
-  text-shadow: 0 0 calc(10px * var(--glow)) var(--neon-b);
-  animation: arcade-blink 1.15s steps(1) infinite;
-}
 @keyframes arcade-blink {
   0%, 55% { opacity: 1; }
   56%, 100% { opacity: 0.15; }
@@ -346,7 +338,6 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .arcade-floor::before,
-  .arcade-coin,
   .cab-badge.is-live::before,
   .cab.is-playable:hover .cab-glyph {
     animation: none;

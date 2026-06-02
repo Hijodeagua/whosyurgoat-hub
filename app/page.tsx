@@ -7,7 +7,7 @@ const STATUS_META: Record<
   live: {
     badgeText: "LIVE",
     badgeClass: "is-live",
-    ctaLead: "INSERT COIN",
+    ctaLead: "READY",
     ctaAction: "▸ PLAY",
     playable: true,
   },
@@ -39,13 +39,9 @@ function Cabinet({ project }: { project: Project }) {
     .filter(Boolean)
     .join(" ");
 
-  return (
-    <a
-      href={meta.playable ? project.href : undefined}
-      aria-disabled={!meta.playable}
-      className={classes}
-      style={{ ["--c" as string]: project.accent }}
-    >
+  const style = { ["--c" as string]: project.accent };
+  const inner = (
+    <>
       <div className="cab-screen">
         <span className={`cab-badge ${meta.badgeClass}`}>{meta.badgeText}</span>
         <span className="cab-glyph">{project.emoji}</span>
@@ -56,6 +52,20 @@ function Cabinet({ project }: { project: Project }) {
         <span>{meta.ctaLead}</span>
         <span className="cab-arrow">{meta.ctaAction}</span>
       </div>
+    </>
+  );
+
+  if (!meta.playable) {
+    return (
+      <div className={classes} style={style} aria-label={`${project.title} — coming soon`}>
+        {inner}
+      </div>
+    );
+  }
+
+  return (
+    <a href={project.href} className={classes} style={style}>
+      {inner}
     </a>
   );
 }
@@ -71,7 +81,6 @@ export default function Home() {
 
       <main className="mx-auto max-w-5xl px-6 pb-32 pt-16 sm:pt-24">
         <header className="mb-12 text-center sm:mb-16">
-          <div className="arcade-coin">★ INSERT COIN TO CONTINUE ★</div>
           <h1 className="arcade-title">
             TRE&apos;S <span className="accent">ARCADE</span>
           </h1>
