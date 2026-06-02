@@ -6,6 +6,7 @@
     { "source": "/crime-maps/:path*", "destination": "https://PLACEHOLDER-crimemaps.vercel.app/:path*" },
     { "source": "/election/:path*",   "destination": "https://PLACEHOLDER-election.vercel.app/:path*" },
     { "source": "/vegas/:path*",      "destination": "https://PLACEHOLDER-vegas.vercel.app/:path*" },
-    { "source": "/worldcup/:path*",   "destination": "https://world-cup-tickets-seven.vercel.app/:path*" }
+    { "source": "/worldcup",          "destination": "https://world-cup-tickets-seven.vercel.app/worldcup" },
+    { "source": "/worldcup/:path*",   "destination": "https://world-cup-tickets-seven.vercel.app/worldcup/:path*" }
   ]
 }
