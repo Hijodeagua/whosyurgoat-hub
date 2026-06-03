@@ -3,9 +3,6 @@
     { "source": "/goat",              "destination": "https://peoples-champ.vercel.app/" },
     { "source": "/goat/",             "destination": "https://peoples-champ.vercel.app/" },
     { "source": "/goat/:path*",       "destination": "https://peoples-champ.vercel.app/:path*" },
-    { "source": "/crime-maps/:path*", "destination": "https://PLACEHOLDER-crimemaps.vercel.app/:path*" },
-    { "source": "/election/:path*",   "destination": "https://PLACEHOLDER-election.vercel.app/:path*" },
-    { "source": "/vegas/:path*",      "destination": "https://PLACEHOLDER-vegas.vercel.app/:path*" },
     { "source": "/worldcup",          "destination": "https://world-cup-tickets-seven.vercel.app/worldcup" },
     { "source": "/worldcup/:path*",   "destination": "https://world-cup-tickets-seven.vercel.app/worldcup/:path*" }
   ]

@@ -8,29 +8,37 @@ It contains **no project code** — only routing + the landing page. Keep it tin
 
 ## Routes
 
-| Path                       | Target                                      |
-| -------------------------- | ------------------------------------------- |
-| `whosyurgoat.app/`         | This hub's landing page                     |
-| `whosyurgoat.app/goat`     | Peoples_Champ (Who's Yur GOAT) deployment   |
-| `whosyurgoat.app/crime-maps` | Crime-Maps deployment                     |
-| `whosyurgoat.app/election` | Election Tracker deployment                 |
-| `whosyurgoat.app/vegas`    | Can Tre Beat Vegas deployment               |
-| `whosyurgoat.app/worldcup` | World Cup 2026 deployment                   |
+Only **deployed** projects get a proxy rewrite. Everything else renders as a
+non-clickable **Coming Soon** cabinet on the landing page (no rewrite) until it
+actually ships — that's deliberate, so the hub never links to a dead URL.
+
+| Path                       | Target                                      | Status      |
+| -------------------------- | ------------------------------------------- | ----------- |
+| `whosyurgoat.app/`         | This hub's landing page                     | live        |
+| `whosyurgoat.app/goat`     | Peoples_Champ (Who's Yur GOAT) deployment   | live        |
+| `whosyurgoat.app/worldcup` | World Cup 2026 deployment                   | live        |
+| _(landing card only)_      | Election Tracker — built, not yet deployed  | coming soon |
+| _(landing card only)_      | Can Tre Beat Vegas — reports pipeline        | coming soon |
+| _(landing card only)_      | Crime Maps — built, not yet deployed         | coming soon |
+| _(landing card only)_      | My Ideal Rep — built, not yet deployed       | coming soon |
+| _(landing card only)_      | Pooppyhead Detector — built, not yet deployed| coming soon |
 
 ## How to add a new project
 
 1. **Add a card.** Append an entry to the `projects` array in
    [`app/projects.ts`](app/projects.ts) with a `title`, `description`, `href`
-   (the subpath, e.g. `/newthing`), and `status` (`"live"` or `"coming-soon"`).
-2. **Add a rewrite.** Add a matching rule to [`vercel.json`](vercel.json):
+   (the subpath, e.g. `/newthing`), and `status` (`"live"`, `"in-progress"`, or
+   `"coming-soon"`).
+2. **Add a rewrite — only once it's deployed.** When the project has a real
+   live URL, add a matching rule to [`vercel.json`](vercel.json):
    ```json
    { "source": "/newthing/:path*", "destination": "https://YOUR-newthing.vercel.app/:path*" }
    ```
    The `source` subpath must match the card's `href`.
 
-A **Coming Soon** project should still render a card. Its rewrite can point at a
-placeholder URL until the real deployment is live — just swap the destination
-when it ships.
+A **Coming Soon** project still renders a card, but it is **not clickable** and
+needs **no rewrite** — so it can never link to a dead URL. When the project
+ships, flip its `status` to `"live"` and add the rewrite at the same time.
 
 ## Rewrite ordering rules (don't break this)
 
