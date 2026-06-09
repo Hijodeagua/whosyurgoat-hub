@@ -13,6 +13,8 @@ export type Project = {
 
 // To add a new project: add an entry here AND a matching rewrite in vercel.json.
 // The `href` must match the rewrite `source` subpath.
+// NOTE: keep this list in sync with the rewrites in vercel.json — every `href`
+// here must have a corresponding rewrite there, and vice versa.
 export const projects: Project[] = [
   {
     title: "Who's Yur GOAT",
@@ -32,7 +34,8 @@ export const projects: Project[] = [
   },
   {
     title: "Election Tracker",
-    description: "Polling averages & trends.",
+    description:
+      "Trump approval comparisons, Senate race trackers with market odds, and a Senate control simulation.",
     href: "/election",
     status: "coming-soon",
     emoji: "🗳️",

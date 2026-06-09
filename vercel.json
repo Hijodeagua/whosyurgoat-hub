@@ -1,4 +1,7 @@
 {
+  // NOTE: keep these rewrites in sync with the project list in app/projects.ts —
+  // every project `href` there must have a matching rewrite `source` here.
+  // (Vercel supports comments in vercel.json.)
   "rewrites": [
     { "source": "/goat",              "destination": "https://peoples-champ.vercel.app/" },
     { "source": "/goat/",             "destination": "https://peoples-champ.vercel.app/" },
