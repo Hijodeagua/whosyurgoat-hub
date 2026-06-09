@@ -33,6 +33,14 @@ export const projects: Project[] = [
     accent: "#c66bff",
   },
   {
+    title: "Pooppyhead Detector",
+    description: "AI fact-checks any claim on a 1–10 💩 scale.",
+    href: "/poop",
+    status: "in-progress",
+    emoji: "💩",
+    accent: "#b5803a",
+  },
+  {
     title: "Election Tracker",
     description:
       "Trump approval comparisons, Senate race trackers with market odds, and a Senate control simulation.",
