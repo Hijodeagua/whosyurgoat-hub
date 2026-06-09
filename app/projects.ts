@@ -33,11 +33,11 @@ export const projects: Project[] = [
     accent: "#c66bff",
   },
   {
-    title: "Election Tracker",
+    title: "Policy y Peaches Model Hub",
     description:
       "Trump approval comparisons, Senate race trackers with market odds, and a Senate control simulation.",
     href: "/election",
-    status: "coming-soon",
+    status: "live",
     emoji: "🗳️",
     accent: "#4da3ff",
   },
