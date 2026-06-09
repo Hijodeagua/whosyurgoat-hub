@@ -32,7 +32,7 @@ export const projects: Project[] = [
   },
   {
     title: "Election Tracker",
-    description: "Polling averages & trends.",
+    description: "Approval & Senate forecasts vs. markets.",
     href: "/election",
     status: "coming-soon",
     emoji: "🗳️",
