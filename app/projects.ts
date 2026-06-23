@@ -51,9 +51,10 @@ export const projects: Project[] = [
   },
   {
     title: "Crime Maps",
-    description: "Charlotte crime data, interactive maps.",
-    href: "/crime-maps",
-    status: "coming-soon",
+    description:
+      "Street-level crime heat maps for Charlotte & Raleigh — per-capita hotspots, 3-year time slider, live 911 feed.",
+    href: "https://tre-crime-maps.streamlit.app",
+    status: "live",
     emoji: "🗺️",
     accent: "#ff4d6d",
   },

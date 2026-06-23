@@ -3,7 +3,7 @@
     { "source": "/goat",              "destination": "https://peoples-champ.vercel.app/" },
     { "source": "/goat/",             "destination": "https://peoples-champ.vercel.app/" },
     { "source": "/goat/:path*",       "destination": "https://peoples-champ.vercel.app/:path*" },
-    { "source": "/crime-maps/:path*", "destination": "https://PLACEHOLDER-crimemaps.vercel.app/:path*" },
+    { "source": "/crime-maps/:path*", "destination": "https://tre-crime-maps.streamlit.app/:path*" },
     { "source": "/election",          "destination": "https://election-models-by-tre.vercel.app/election" },
     { "source": "/election/:path*",   "destination": "https://election-models-by-tre.vercel.app/election/:path*" },
     { "source": "/vegas/:path*",      "destination": "https://PLACEHOLDER-vegas.vercel.app/:path*" },
