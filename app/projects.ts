@@ -43,9 +43,10 @@ export const projects: Project[] = [
   },
   {
     title: "Can Tre Beat Vegas",
-    description: "NFL/NBA model picks vs. the spread.",
+    description:
+      "Model picks vs. the bookies — daily MLB Elo predictions with simulated scores, playoff futures, and a graded track record.",
     href: "/vegas",
-    status: "coming-soon",
+    status: "live",
     emoji: "🎰",
     accent: "#3ddc84",
   },
