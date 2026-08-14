@@ -44,7 +44,7 @@ export const projects: Project[] = [
   {
     title: "Can Tre Beat Vegas",
     description:
-      "Model picks vs. the bookies — daily MLB Elo predictions with simulated scores, playoff futures, and a graded track record.",
+      "Model picks vs. the bookies — daily MLB predictions from a team Elo with a starter-adjusted shadow model, simulated scores, playoff futures, and a versioned, graded track record.",
     href: "/vegas",
     status: "live",
     emoji: "🎰",
