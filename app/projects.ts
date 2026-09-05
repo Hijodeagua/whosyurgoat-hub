@@ -19,7 +19,7 @@ export const projects: Project[] = [
   {
     title: "Can Tre Beat Vegas",
     description:
-      "Model picks vs. the bookies — daily MLB Elo predictions with simulated scores, playoff futures, a graded track record; club Elo ratings and Opta-style final-table forecasts (title / UCL / UEL / relegation odds) for Europe's top 5 football leagues; and a college football Elo with a weekly top 25, expected wins, bowl and conference-title odds, and graded picks.",
+      "Model picks vs. the bookies — daily MLB Elo predictions with simulated scores, playoff futures, a graded track record; club Elo ratings and Opta-style final-table forecasts (title / UCL / UEL / relegation odds) for Europe's top 5 football leagues; a college football Elo with a weekly top 25, expected wins, bowl and conference-title odds, and graded picks; and a betting-blind NFL Elo with power rankings, weekly picks with the model's own line, division / playoff / Super Bowl odds, and a graded record.",
     href: "/vegas",
     status: "live",
     emoji: "🎰",
