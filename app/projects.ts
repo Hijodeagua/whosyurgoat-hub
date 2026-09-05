@@ -17,6 +17,24 @@ export type Project = {
 // here must have a corresponding rewrite there, and vice versa.
 export const projects: Project[] = [
   {
+    title: "Can Tre Beat Vegas",
+    description:
+      "Model picks vs. the bookies — daily MLB Elo predictions with simulated scores, playoff futures, a graded track record; club Elo ratings and Opta-style final-table forecasts (title / UCL / UEL / relegation odds) for Europe's top 5 football leagues; and a college football Elo with a weekly top 25, expected wins, bowl and conference-title odds, and graded picks.",
+    href: "/vegas",
+    status: "live",
+    emoji: "🎰",
+    accent: "#3ddc84",
+  },
+  {
+    title: "Policy y Peaches Model Hub",
+    description:
+      "Trump approval comparisons, Senate race trackers with market odds, and a Senate control simulation.",
+    href: "/election",
+    status: "live",
+    emoji: "🗳️",
+    accent: "#4da3ff",
+  },
+  {
     title: "Who's Yur GOAT",
     description: "NBA GOAT head-to-head voting.",
     href: "/goat",
@@ -31,24 +49,6 @@ export const projects: Project[] = [
     status: "live",
     emoji: "⚽",
     accent: "#c66bff",
-  },
-  {
-    title: "Policy y Peaches Model Hub",
-    description:
-      "Trump approval comparisons, Senate race trackers with market odds, and a Senate control simulation.",
-    href: "/election",
-    status: "live",
-    emoji: "🗳️",
-    accent: "#4da3ff",
-  },
-  {
-    title: "Can Tre Beat Vegas",
-    description:
-      "Model picks vs. the bookies — daily MLB Elo predictions with simulated scores, playoff futures, a graded track record; club Elo ratings and Opta-style final-table forecasts (title / UCL / UEL / relegation odds) for Europe's top 5 football leagues; and a college football Elo with a weekly top 25, expected wins, bowl and conference-title odds, and graded picks.",
-    href: "/vegas",
-    status: "live",
-    emoji: "🎰",
-    accent: "#3ddc84",
   },
   {
     title: "Crime Maps",
