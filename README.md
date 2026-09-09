@@ -11,6 +11,7 @@ It contains **no project code** — only routing + the landing page. Keep it tin
 | Path                       | Target                                      |
 | -------------------------- | ------------------------------------------- |
 | `whosyurgoat.app/`         | This hub's landing page                     |
+| `whosyurgoat.app/extravaganza` | Google Form Extravaganza deployment     |
 | `whosyurgoat.app/goat`     | Peoples_Champ (Who's Yur GOAT) deployment   |
 | `whosyurgoat.app/crime-maps` | Crime-Maps deployment                     |
 | `whosyurgoat.app/election` | Election Tracker deployment                 |
@@ -60,8 +61,8 @@ hub**. In the target project's `next.config.mjs`:
 const nextConfig = { basePath: "/goat", assetPrefix: "/goat" };
 ```
 
-Do the same in each project (`/crime-maps`, `/election`, `/vegas`,
-`/worldcup`). Without it, `whosyurgoat.app/goat` loads the HTML but the JS/CSS
+Do the same in each project (`/crime-maps`, `/election`, `/extravaganza`,
+`/vegas`, `/worldcup`). Without it, `whosyurgoat.app/goat` loads the HTML but the JS/CSS
 and links point at `/_next/...` instead of `/goat/_next/...`.
 
 ## Local development

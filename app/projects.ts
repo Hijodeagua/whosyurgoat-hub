@@ -17,6 +17,15 @@ export type Project = {
 // here must have a corresponding rewrite there, and vice versa.
 export const projects: Project[] = [
   {
+    title: "Google Form Extravaganza",
+    description:
+      "Friend-group prediction pools, scored live off the Google Form responses: standings, pot leaders, how the room split on every question, and a model that filled out the same form.",
+    href: "/extravaganza",
+    status: "live",
+    emoji: "📝",
+    accent: "#ff9f45",
+  },
+  {
     title: "Can Tre Beat Vegas",
     description:
       "Model picks vs. the bookies — daily MLB Elo predictions with simulated scores, playoff futures, a graded track record; club Elo ratings and Opta-style final-table forecasts (title / UCL / UEL / relegation odds) for Europe's top 5 football leagues; and a college football Elo with a weekly top 25, expected wins, bowl and conference-title odds, and graded picks.",
