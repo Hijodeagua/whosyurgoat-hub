@@ -1,5 +1,7 @@
 {
   "rewrites": [
+    { "source": "/extravaganza",      "destination": "https://google-form-extravaganza.vercel.app/extravaganza" },
+    { "source": "/extravaganza/:path*","destination": "https://google-form-extravaganza.vercel.app/extravaganza/:path*" },
     { "source": "/goat",              "destination": "https://peoples-champ.vercel.app/" },
     { "source": "/goat/",             "destination": "https://peoples-champ.vercel.app/" },
     { "source": "/goat/:path*",       "destination": "https://peoples-champ.vercel.app/:path*" },
